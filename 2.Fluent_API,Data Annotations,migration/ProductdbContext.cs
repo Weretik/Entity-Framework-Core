@@ -16,7 +16,7 @@ public partial class ProductdbContext : DbContext
     }
 
     public virtual DbSet<Product> Products { get; set; }
-
+    public virtual DbSet<Error> Errors { get; set; }
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=productdb;Username=postgres;Password=199629wetprp");
@@ -25,6 +25,7 @@ public partial class ProductdbContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Product>().ToTable("Products");
+        modelBuilder.Entity<Product>().HasKey(p => new { p.Id, p.AlterId });
     }
 
 }

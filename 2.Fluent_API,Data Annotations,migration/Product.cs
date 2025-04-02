@@ -32,4 +32,6 @@ public partial class Product
 
     [Column(TypeName = "date")]
     public DateTime? ManufactureDate { get; set; }
+
+    public int AlterId { get; set; }
 }
