@@ -4,7 +4,15 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            using (var db = new ProductdbContext())
+            {
+                var allProducts = db.Products.ToList();
+
+                foreach (var product in allProducts)
+                {
+                    Console.WriteLine(product.Name);
+                }
+            }
         }
     }
 }
