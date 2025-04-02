@@ -16,21 +16,21 @@ namespace _2.Fluent_API_Data_Annotations_migration;
  */
 public partial class Product
 {
-    [Column("Product_id")]
+    //[Column("Product_id")]
     public int Id { get; set; }
 
-    [MaxLength(50)]
+    //[MaxLength(50)]
     public string? Name { get; set; }
 
-    [Column(TypeName = "money")]
+    //[Column(TypeName = "money")]
     public decimal Cost { get; set; }
     
-    [MaxLength(500)]
+    //[MaxLength(500)]
     public string? Description { get; set; }
 
     public int Quantity { get; set; }
 
-    [Column(TypeName = "date")]
+    //[Column(TypeName = "date")]
     public DateTime? ManufactureDate { get; set; }
 
     public int AlterId { get; set; }
