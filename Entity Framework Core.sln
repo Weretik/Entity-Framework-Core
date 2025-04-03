@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1.Introduction_to_Entity_Fr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2.FluentAPI_DataAnnotations_Migration", "2.Fluent_API,Data Annotations,migration\2.FluentAPI_DataAnnotations_Migration.csproj", "{1EAAB709-E691-41B8-B30E-2A2446A19D1E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3.Relationship_between_models_and_inheritance", "3.Relationship_between_models_and_inheritance\3.Relationship_between_models_and_inheritance.csproj", "{4D7D1974-F993-44FE-9F24-2B566B841224}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,6 +22,10 @@ Global
 		{1EAAB709-E691-41B8-B30E-2A2446A19D1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1EAAB709-E691-41B8-B30E-2A2446A19D1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1EAAB709-E691-41B8-B30E-2A2446A19D1E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D7D1974-F993-44FE-9F24-2B566B841224}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D7D1974-F993-44FE-9F24-2B566B841224}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D7D1974-F993-44FE-9F24-2B566B841224}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D7D1974-F993-44FE-9F24-2B566B841224}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
