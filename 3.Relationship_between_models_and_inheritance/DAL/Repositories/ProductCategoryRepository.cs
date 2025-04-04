@@ -20,54 +20,59 @@ namespace DAL.Repositories
 			_database = database;
 
 		}
-        public async Task<bool> Create(ProductCategory entity)
+        public async Task<bool> Create(Category entity)
         {
             using (EntityDatabase database = _database)
             {
-                await database.Category.AddAsync(entity);
+                await database.Categories.AddAsync(entity);
                 await database.SaveChangesAsync();
             }
             return true;
         }
 
-        public async Task<bool> Delete(ProductCategory entity)
+        public async Task<bool> Delete(Category entity)
         {
             using (EntityDatabase database = _database)
             {
-                database.Category.Remove(entity);
+                database.Categories.Remove(entity);
                 await database.SaveChangesAsync();
             }
             return true;
         }
 
 
-        public async Task<ProductCategory> Update(ProductCategory entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public async Task<ProductCategory> Get(Guid id)
+        public async Task<Category> Update(Category entity)
         {
             using (EntityDatabase database = _database)
             {
-                return await database.Category.FirstOrDefaultAsync(product => product.Id == id);
+                database.Categories.Update(entity);
+                await database.SaveChangesAsync();
+                return entity;
+            }
+        }
+
+        public async Task<Category?> Get(Guid id)
+        {
+            using (EntityDatabase database = _database)
+            {
+                return await database.Categories.FirstOrDefaultAsync(product => product.Id == id);
             }
             
         }
 
-        public async Task<ProductCategory> GetByName(string name)
+        public async Task<Category?> GetByName(string name)
         {
             using (EntityDatabase database = _database)
             {
-                return await database.Category.FirstOrDefaultAsync(product => product.Name == name);
+                return await database.Categories.FirstOrDefaultAsync(product => product.Name == name);
             }
         }
 
-        public async Task<List<ProductCategory>> Select()
+        public async Task<List<Category>> Select()
         {
             using (EntityDatabase database = _database)
             {
-                return await database.Category.ToListAsync();
+                return await database.Categories.ToListAsync();
             }
         }
     }

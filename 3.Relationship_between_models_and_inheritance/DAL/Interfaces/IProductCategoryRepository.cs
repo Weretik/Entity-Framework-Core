@@ -8,8 +8,8 @@ using System.Threading.Tasks;
 
 namespace DAL.Interfaces
 {
-    public interface IProductCategoryRepository : IBaseRepository<ProductCategory>
+    public interface IProductCategoryRepository : IBaseRepository<Category>
     {
-        Task<ProductCategory> GetByName(string name);
+        Task<Category> GetByName(string name);
     }
 }

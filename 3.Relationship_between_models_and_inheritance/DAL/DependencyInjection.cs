@@ -10,15 +10,13 @@ namespace DAL
     {
         public static IServiceCollection AddDataAccessLayer(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddScoped(options =>
-            {
-                return new EntityDatabase(configuration.GetConnectionString("DbConnect"));
-            });
+            services.AddDbContext<EntityDatabase>(options =>
+                options.UseNpgsql(configuration.GetConnectionString("DbConnect")));
+
             services.AddScoped<IProductRepositoryDAL, ProductRepository>();
             services.AddScoped<IProductCategoryRepository, ProductCategoryRepository>();
-			
 
-			return services;
+            return services;
         }
     }
 }

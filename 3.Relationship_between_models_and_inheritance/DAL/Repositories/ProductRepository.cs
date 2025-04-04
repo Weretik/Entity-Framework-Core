@@ -1,6 +1,7 @@
 ﻿using DAL.Entity;
 using DAL.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,9 +16,9 @@ namespace DAL.Repositories
     {
 		EntityDatabase _database;
 
-		public ProductRepository()
+		public ProductRepository(EntityDatabase database)
         {
-            _database = new EntityDatabase();
+            _database = database;
 
 		}
         public async Task<bool> Create(Product entity)
@@ -43,10 +44,15 @@ namespace DAL.Repositories
 
         public async Task<Product> Update(Product entity)
         {
-            throw new NotImplementedException();
+            using (EntityDatabase database = _database)
+            {
+                database.Products.Update(entity);
+                await database.SaveChangesAsync();
+                return entity;
+            }
         }
 
-        public async Task<Product> Get(Guid id)
+        public async Task<Product?> Get(Guid id)
         {
             using (EntityDatabase database = _database)
             {
@@ -55,7 +61,7 @@ namespace DAL.Repositories
             
         }
 
-        public async Task<Product> GetByName(string name)
+        public async Task<Product?> GetByName(string name)
         {
             using (EntityDatabase database = _database)
             {
