@@ -6,13 +6,6 @@ namespace DAL
 {
     public class EntityDatabase : DbContext
 	{
-        public DbSet<Product> Products { get; set; }
-        public DbSet<ProductCategory> Category { get; set; }
-        public EntityDatabase()
-        {
-            Database.EnsureCreated();
-        }
-
         string _connect;
         public EntityDatabase(string connect)
         {
@@ -20,11 +13,14 @@ namespace DAL
 
         }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer("Server=localhost\\SQLEXPRESS;Database=VilkaShopDatabase;Trusted_Connection=True;");
-            //optionsBuilder.UseSqlServer(_connect);
+        public DbSet<User> Users { get; set; } = null!;
+        public DbSet<Category> Categories { get; set; } = null!;
+        public DbSet<Word> Words { get; set; } = null!;
+        public DbSet<KeyParams> KeyParams { get; set; } = null!;
+        public DbSet<Cart> Carts { get; set; } = null!;
+        public DbSet<Product> Products { get; set; } = null!;
 
-        }
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+            => optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=productdb;Username=postgres;Password=199629wetprp");
     }
 }
