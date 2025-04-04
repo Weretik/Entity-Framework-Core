@@ -35,8 +35,26 @@ This repository contains practical assignments completed while studying **Entity
 ---
 
 
-### 3. Model Relationships and Inheritance *(upcoming)*
-⏱ Duration: 59m 46s
+### 3. Model Relationships and Inheritance
+- Opened the project from lesson 2
+- Implemented all entities and relationships as shown in the diagram
+- Noted use of intermediate tables `Cart` and `KeyParams` to establish:
+  - One-to-many relationship between **User** and **Product**
+  - One-to-many relationship between **Keyword** and **Product**
+- Performed migrations and updated the database
+- Seeded the database with:
+  - 2 users
+  - 3 categories
+  - 7 products with related keywords
+- Output results to the console:
+  - Displayed users with purchased products
+  - Displayed all keywords assigned to each product
+  - Displayed products within each category and their keywords
+  - (Optionally) Displayed keywords assigned to each category
+
+  > 📄 [3. Relationship between models](./3.Relationship_between_models_and_inheritance)
+---
+
 
 ### 4. LINQ to Entities Queries *(upcoming)*
 ⏱ Duration: 1h 07m 31s
